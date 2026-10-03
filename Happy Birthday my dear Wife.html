@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday my dear Wife</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffe3ec;--bg2:#ffd1e0;--ink:#5a1230;--accent:#d6336c;--card:rgba(255,255,255,.88);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a0f1c;--bg2:#4a1530;--ink:#ffe3ec;--accent:#ff6b9d;--card:rgba(40,12,26,.88)}}
+:root[data-theme="dark"]{--bg1:#2a0f1c;--bg2:#4a1530;--ink:#ffe3ec;--accent:#ff6b9d;--card:rgba(40,12,26,.88)}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:#2b0a4a;color:var(--ink);transition:color .8s;
+font-family:'Hind Siliguri',system-ui,sans-serif;overflow:hidden;-webkit-tap-highlight-color:transparent}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:0}
+.page{position:fixed;inset:0;z-index:1;display:none;flex-direction:column;padding:24px 24px 100px;overflow-y:auto;text-align:center}
+.page.on{display:flex;animation:fade .8s both}
+.center{margin:auto;width:100%;display:flex;flex-direction:column;align-items:center}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+h1{font-family:'Dancing Script',cursive,serif;font-size:clamp(2.3rem,8vw,5rem);color:var(--accent);margin:0 0 12px;
+text-shadow:0 2px 14px rgba(214,51,108,.25);max-width:900px;line-height:1.2}
+.sub{font-size:clamp(1.1rem,3vw,1.5rem);margin:0}
+
+/* page themes */
+.bgL{position:fixed;inset:0;z-index:0;opacity:0;transition:opacity 1.2s;pointer-events:none}
+#bg1{background:radial-gradient(circle at 18% 15%,rgba(255,79,154,.55),transparent 45%),radial-gradient(circle at 85% 82%,rgba(255,209,102,.35),transparent 42%),linear-gradient(160deg,#2b0a4a,#5b1a8c 55%,#a8267d)}
+#bg2{background:radial-gradient(ellipse at 50% 42%,rgba(255,179,71,.38),transparent 58%),linear-gradient(180deg,#14070f,#3a1426 70%,#4a1a2e)}
+#bg3{background:radial-gradient(circle at 15% 10%,rgba(255,255,255,.85),transparent 42%),linear-gradient(160deg,#fff4e6,#ffd9df 60%,#ffc2d1)}
+body[data-page=p1] #bg1,body[data-page=p2] #bg2,body[data-page=p3] #bg3{opacity:1}
+body{--b1:#ffb703;--b2:#fb5607}
+body[data-page=p1]{--ink:#fff;--accent:#ffd166;--card:rgba(255,255,255,.14);--b1:#ffb703;--b2:#fb5607}
+body[data-page=p2]{--ink:#ffe9d6;--accent:#ffc46b;--card:rgba(255,255,255,.1);--b1:#ff9f43;--b2:#ee5a8a}
+body[data-page=p3]{--ink:#5a1230;--accent:#c2185b;--card:rgba(255,253,247,.94);--b1:#ff5f9e;--b2:#e91e63}
+#bunting{position:fixed;top:0;left:0;width:100%;height:clamp(44px,9vw,84px);z-index:1;pointer-events:none}
+body:not([data-page=p1]) #bunting{display:none}
+#note{border:2px solid rgba(194,24,91,.22)}
+.rose{position:fixed;z-index:1;pointer-events:none;font-size:clamp(46px,9vw,100px);line-height:1;display:none;filter:drop-shadow(0 6px 8px rgba(120,0,40,.3))}
+body[data-page=p3] .rose{display:block}
+.r1{top:6px;left:8px;transform:rotate(-20deg)}.r2{top:6px;right:8px;transform:rotate(20deg) scaleX(-1)}
+.r3{bottom:70px;left:50%;transform:translateX(-50%);font-size:clamp(34px,6vw,64px);letter-spacing:6px;opacity:.9}
+
+/* fancy action buttons */
+.fancy{position:relative;overflow:hidden;font:inherit;font-weight:600;font-size:clamp(1.1rem,3.2vw,1.3rem);letter-spacing:.3px;color:#fff;
+background:linear-gradient(135deg,var(--b1),var(--b2));border:2px solid rgba(255,255,255,.55);padding:15px 34px;border-radius:999px;
+cursor:pointer;margin-top:30px;box-shadow:0 10px 28px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.5);text-shadow:0 1px 3px rgba(0,0,0,.25);
+transition:transform .2s}
+.fancy:hover{transform:translateY(-3px) scale(1.03)}
+.fancy:active{transform:scale(.96)}
+.fancy::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;
+background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3s infinite}
+@keyframes shine{0%,55%{left:-70%}100%{left:130%}}
+.late{opacity:0;animation:fade 1s 1.8s forwards}
+
+/* cake page */
+.stage{display:flex;flex-direction:column;align-items:center;gap:20px;width:100%;max-width:1000px}
+#p2{cursor:pointer;user-select:none}
+#cake{width:min(330px,78vw);height:auto;overflow:visible;filter:drop-shadow(0 10px 18px rgba(0,0,0,.15))}
+.hint{font-size:1.15rem;margin:6px 0 0;font-weight:500;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.35}}
+.flame{transform-origin:center bottom;transform-box:fill-box;animation:flick .35s infinite alternate}
+@keyframes flick{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.88,1.12) rotate(3deg)}}
+.out .flame{animation:none;opacity:0;transition:opacity .4s}
+.smoke{opacity:0;fill:none;stroke:#999;stroke-width:2;stroke-linecap:round}
+.out .smoke{animation:rise 2s forwards}
+@keyframes rise{0%{opacity:.7;transform:translateY(0)}100%{opacity:0;transform:translateY(-40px)}}
+#right{display:none;flex-direction:column;align-items:center;width:100%;max-width:520px}
+#right.on{display:flex;animation:fade 1s both}
+#wish{background:var(--card);border-radius:24px;padding:26px 24px;box-shadow:0 14px 44px rgba(0,0,0,.18);backdrop-filter:blur(6px);
+border:2px solid rgba(255,95,158,.35)}
+#wish .wt{font-family:'Dancing Script',cursive,serif;font-size:clamp(1.8rem,5vw,2.4rem);color:var(--accent);margin:0 0 8px;line-height:1.3}
+#wish p{margin:0 0 8px;line-height:1.85;font-size:clamp(1.02rem,2.6vw,1.2rem)}
+#wish .em{font-size:1.7rem;letter-spacing:6px;margin-top:6px}
+.replay{background:none;border:0;color:var(--accent);font:inherit;font-weight:500;cursor:pointer;margin-top:14px;font-size:1rem;text-decoration:underline}
+
+/* note page */
+#note{max-width:760px;width:100%;background:var(--card);border-radius:24px;padding:clamp(22px,4vw,44px);text-align:left;
+line-height:1.95;font-size:clamp(1.05rem,2.4vw,1.25rem);box-shadow:0 14px 44px rgba(0,0,0,.18);backdrop-filter:blur(6px);margin:auto}
+#note p{margin:0 0 14px}
+#note .to{font-size:1.5rem;font-weight:600;color:var(--accent)}
+#note .end{text-align:center;font-weight:600;color:var(--accent);margin:18px 0 0;font-family:'Dancing Script',cursive,serif;font-size:1.4rem;line-height:1.5}
+#note .final{text-align:center;font-family:'Dancing Script',cursive,serif;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.5;color:var(--accent);margin:22px 0 4px}
+
+/* nav arrows */
+.nav{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:5;width:54px;height:54px;padding:0;display:flex;align-items:center;justify-content:center;
+border-radius:50%;background:linear-gradient(135deg,var(--b1),var(--b2));border:2px solid rgba(255,255,255,.6);cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.nav svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+#prev{left:18px}#nxt{right:18px}
+.nav:disabled{opacity:.3;cursor:default;box-shadow:none}
+
+/* laptop / big screens */
+@media (min-width:900px){
+  .page{padding:40px 60px 110px}
+  #cake{width:400px}
+  .stage.two{flex-direction:row;gap:70px;justify-content:center;align-items:center}
+  #right{max-width:520px}
+  .nav{width:60px;height:60px;bottom:30px}
+  #prev{left:34px}#nxt{right:34px}
+}
+</style>
+</head>
+<body data-page="p1">
+<div class="bgL" id="bg1"></div><div class="bgL" id="bg2"></div><div class="bgL" id="bg3"></div>
+<svg id="bunting" viewBox="0 0 1000 80" preserveAspectRatio="none"></svg>
+<div class="rose r1">🌹🌿</div><div class="rose r2">🌹🌿</div><div class="rose r3">🌹🌹🌹</div>
+<canvas id="fx"></canvas>
+
+<section class="page on" id="p1"><div class="center">
+  <h1>Happy Birthday my dear Wife 🎂</h1>
+  <p class="sub">তোমার জন্য একটা ছোট্ট সারপ্রাইজ 💖</p>
+  <button class="fancy late" id="b1">✨ চলো, কেক কাটি 🎂</button>
+</div></section>
+
+<section class="page" id="p2"><div class="center">
+  <div class="stage" id="stage">
+    <div style="text-align:center">
+      <svg id="cake" viewBox="0 0 300 270" aria-label="Birthday cake">
+        <ellipse cx="150" cy="248" rx="135" ry="14" fill="#e9b8c8"/>
+        <rect x="30" y="170" width="240" height="76" rx="14" fill="#f48fb1"/>
+        <path d="M30 182 q20 22 40 0 q20 22 40 0 q20 22 40 0 q20 22 40 0 q20 22 40 0 q20 22 40 0 v-12 h-240z" fill="#fff4f8"/>
+        <rect x="65" y="110" width="170" height="62" rx="12" fill="#ff80ab"/>
+        <path d="M65 122 q17 20 34 0 q17 20 34 0 q17 20 34 0 q17 20 34 0 q17 20 34 0 v-12 h-170z" fill="#fff4f8"/>
+        <circle cx="70" cy="215" r="5" fill="#ffd166"/><circle cx="110" cy="226" r="5" fill="#06d6a0"/>
+        <circle cx="150" cy="215" r="5" fill="#ffd166"/><circle cx="190" cy="226" r="5" fill="#06d6a0"/><circle cx="230" cy="215" r="5" fill="#ffd166"/>
+        <g id="candles"></g>
+      </svg>
+      <p class="hint" id="hint">স্ক্রিনে ট্যাপ করো, মোমবাতি নিভিয়ে দাও 🕯️</p>
+    </div>
+    <div id="right">
+      <div id="wish">
+        <p class="wt">শুভ জন্মদিন, আমার ভালোবাসা! 🎉</p>
+        <p>মোমবাতি নিভে গেছে, এবার মনে মনে একটা সুন্দর ইচ্ছে করো। আমার প্রার্থনা, তোমার সব স্বপ্ন সত্যি হোক, তোমার প্রতিটা দিন হাসি আর ভালোবাসায় ভরে উঠুক।</p>
+        <p>তুমি সবসময় ভালো থেকো, সুখে থেকো। 💖</p>
+        <div class="em">🎂🌹✨</div>
+        <button class="replay" id="replay">🎵 গানটা আবার শুনো</button>
+      </div>
+      <button class="fancy" id="next">💌 আমার মনের কথাগুলো পড়ো</button>
+    </div>
+  </div>
+</div></section>
+
+<section class="page" id="p3">
+  <div id="note">
+    <p class="to">আমার প্রিয় গিন্নি,</p>
+    <p>জন্মদিনের অনেক অনেক শুভেচ্ছা।</p>
+    <p>যেদিন থেকে তোমাকে আমার জীবনে পেয়েছি, সেদিন থেকেই আমি নিজেকে নতুন করে চিনতে শিখেছি। হয়তো তুমি আমার জীবনে না এলে আজ আমি এমন থাকতে পারতাম না। আমার কথা বলা থেকে শুরু করে প্রায় সবকিছুতেই তোমার অবদান সবার উপরে, কারণ এর সব কৃতিত্ব তোমারই।</p>
+    <p>জানি না কীভাবে তোমাকে ভালোবেসে ফেলেছি, কিন্তু যখন থেকে তোমাকে ভালো লাগতে শুরু করেছে, তখন থেকেই তোমাকে আমার সবকিছু বলে মেনে নিয়েছি। আমার জীবনের সব চিন্তা শুধু তোমাকে নিয়েই হয়ে গেছে। তুমি আমার জীবনের সেই বিশেষ মানুষ, যাকে পাওয়ার পর থেকে আর কখনো অন্য কারও সাথে কথা বলার কথা মাথায় আসে না।</p>
+    <p>আসলে ভালোবাসা কী, সেটা আমি জানি না, কিন্তু আমি শুধু এটুকু জানি যে আমি তোমাকে ভালোবাসি, মানে আমার তোমাকেই লাগবে।</p>
+    <p>অনেক অনেক বাজে কথা বলে ফেললাম তোমার এই দিনটায়। তাই এই দিনটার মতো আরও অনেক দিন আসুক তোমার জীবনে, আর তুমি অনেক ভালো একটা অবস্থানে পৌঁছাও। সবসময় এই প্রার্থনাই থাকবে ভগবানের কাছে...</p>
+    <p class="end">Wish you many many happy returns of the day<br>and Happy Birthday to you !!! 🎉</p>
+    <p class="final">I Love You so much Ginni<br>Ummmmmmaaaaaaaa 😘😘💋💋😘</p>
+  </div>
+</section>
+
+<button class="nav" id="prev" aria-label="Previous page" title="আগের পেজ"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+<button class="nav" id="nxt" aria-label="Next page" title="পরের পেজ"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+
+<script>
+(function(){
+  /* ---------- background effects ---------- */
+  var c=document.getElementById('fx'),x=c.getContext('2d'),W,H,items=[],conf=[];
+  function size(){W=c.width=innerWidth;H=c.height=innerHeight}
+  size();addEventListener('resize',size);
+  var themes={p1:{set:['🎈','🎉','🎊','🎁','⭐','🎈'],dir:1},p2:{set:['✨','⭐','💫','🕯️','✨'],dir:1},p3:{set:['🌹','🌹','🌸','🌷','🌹'],dir:-1,petals:true}},dirv=1;
+  var pc=['#e91e63','#f06292','#c2185b','#ff80ab','#d81b60'];
+  for(var i=0;i<36;i++)items.push({x:Math.random()*W,y:Math.random()*H,s:16+Math.random()*22,v:.3+Math.random()*.9,t:'❤',p:Math.random()*6,k:0,c:pc[i%5]});
+  function setTheme(id){var th=themes[id];dirv=th.dir;document.body.setAttribute('data-page',id);
+    items.forEach(function(o,i){o.t=th.set[i%th.set.length];o.k=(th.petals&&i%3!==0)?1:0})}
+  setTheme('p1');
+  var bf='',bc=['#ff5f9e','#ffd166','#06d6a0','#4cc9f0','#b388ff'];
+  for(var k=0;k<20;k++)bf+='<polygon points="'+(k*50+4)+',6 '+(k*50+46)+',6 '+(k*50+25)+',66" fill="'+bc[k%5]+'"/>';
+  document.getElementById('bunting').innerHTML='<path d="M0 6 H1000" stroke="#fff" stroke-width="3"/>'+bf;
+  function burst(){
+    var cols=['#ff6b9d','#ffd166','#06d6a0','#4cc9f0','#d6336c','#fff'];
+    for(var i=0;i<160;i++)conf.push({x:W/2,y:H*.5,vx:(Math.random()-.5)*16,vy:-Math.random()*15-3,c:cols[i%6],r:3+Math.random()*4,l:120+Math.random()*60});
+  }
+  (function loop(){
+    x.clearRect(0,0,W,H);
+    items.forEach(function(o){o.y-=o.v*dirv;o.p+=.02;if(dirv>0&&o.y<-30){o.y=H+30;o.x=Math.random()*W}if(dirv<0&&o.y>H+30){o.y=-30;o.x=Math.random()*W}
+      if(o.k){x.globalAlpha=.85;x.save();x.translate(o.x+Math.sin(o.p)*22,o.y);x.rotate(o.p*1.5);x.fillStyle=o.c;x.beginPath();x.ellipse(0,0,o.s*.55,o.s*.28,0,0,6.283);x.fill();x.restore()}else{x.globalAlpha=.55;x.font=(o.s+(dirv<0?10:0))+'px serif';x.fillText(o.t,o.x+Math.sin(o.p)*14,o.y)}});
+    x.globalAlpha=1;
+    conf=conf.filter(function(p){return p.l>0});
+    conf.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.vx*=.99;p.l--;x.fillStyle=p.c;x.fillRect(p.x,p.y,p.r,p.r*1.6)});
+    requestAnimationFrame(loop);
+  })();
+  setTimeout(burst,400);
+
+  /* ---------- Happy Birthday tune (piano model + soft left hand + hall reverb) ---------- */
+  var ac=null,master=null,noiseBuf=null;
+  var N={G4:392,A4:440,B4:494,C5:523.25,D5:587.33,E5:659.25,F5:698.46,G5:784};
+  var tune=[['G4',.75],['G4',.25],['A4',1],['G4',1],['C5',1],['B4',2],
+            ['G4',.75],['G4',.25],['A4',1],['G4',1],['D5',1],['C5',2],
+            ['G4',.75],['G4',.25],['G5',1],['E5',1],['C5',1],['B4',1],['A4',2],
+            ['F5',.75],['F5',.25],['E5',1],['C5',1],['D5',1],['C5',3]];
+  var Cc=[65.4,130.8,164.8,196,261.6],Gc=[98,123.5,146.8,196,246.9],Fc=[87.3,110,130.8,174.6,220];
+  var chords=[[0,4,Cc],[4,6,Gc],[6,10,Gc],[10,12,Cc],[12,17,Cc],[17,19,Fc],[19,22,Fc],[22,23,Gc],[23,27,Cc]];
+  function impulse(){
+    var len=Math.floor(ac.sampleRate*2.8),b=ac.createBuffer(2,len,ac.sampleRate);
+    for(var ch=0;ch<2;ch++){var d=b.getChannelData(ch),lp=0;
+      for(var i=0;i<len;i++){var k=i/len,a=.55+.43*k;lp=lp*a+(Math.random()*2-1)*(1-a);d[i]=lp*Math.pow(1-k,2.4)*4}}
+    return b;
+  }
+  /* one piano note: 2 slightly detuned strings per partial, inharmonic stretch, brighter at start, hammer thump */
+  function piano(f,t,d,vol,dest,pan){
+    var out=ac.createGain(),lp=ac.createBiquadFilter(),pn=ac.createStereoPanner?ac.createStereoPanner():null;
+    lp.type='lowpass';lp.Q.value=.5;
+    lp.frequency.setValueAtTime(Math.min(f*9,9000),t);
+    lp.frequency.exponentialRampToValueAtTime(Math.max(f*2.2,500),t+Math.min(d+1,2.5));
+    out.connect(lp);
+    if(pn){pn.pan.value=pan||0;lp.connect(pn);pn.connect(dest)}else lp.connect(dest);
+    var amps=[1,.62,.4,.24,.15,.09,.05],life=Math.min(4.5,Math.max(1.6,d+1.3+(500/f)));
+    amps.forEach(function(a,h){
+      var n=h+1,ff=f*n*Math.sqrt(1+.0004*n*n);
+      if(ff>11000)return;
+      [-1.6,1.6].forEach(function(dt){
+        var o=ac.createOscillator(),g=ac.createGain(),dec=life/Math.pow(n,.55);
+        o.type='sine';o.frequency.value=ff;o.detune.value=dt;
+        g.gain.setValueAtTime(0.0001,t);
+        g.gain.linearRampToValueAtTime(vol*a*.5,t+.004);
+        g.gain.exponentialRampToValueAtTime(vol*a*.5*.25,t+Math.min(.35,dec*.2));
+        g.gain.exponentialRampToValueAtTime(.0004,t+dec);
+        o.connect(g);g.connect(out);o.start(t);o.stop(t+dec+.05);
+      });
+    });
+    if(!noiseBuf){noiseBuf=ac.createBuffer(1,ac.sampleRate*.05,ac.sampleRate);
+      var nd=noiseBuf.getChannelData(0);for(var i=0;i<nd.length;i++)nd[i]=(Math.random()*2-1)*Math.pow(1-i/nd.length,3)}
+    var ns=ac.createBufferSource(),bp=ac.createBiquadFilter(),ng=ac.createGain();
+    ns.buffer=noiseBuf;bp.type='bandpass';bp.frequency.value=Math.min(f*3,4000);bp.Q.value=.8;ng.gain.value=vol*.28;
+    ns.connect(bp);bp.connect(ng);ng.connect(out);ns.start(t);
+  }
+  function playSong(){
+    try{
+      if(!ac){ac=new (window.AudioContext||window.webkitAudioContext)()}
+      if(ac.state==='suspended')ac.resume();
+      stopSong();
+      master=ac.createGain();master.gain.value=.9;
+      var comp=ac.createDynamicsCompressor();comp.threshold.value=-18;comp.ratio.value=3;
+      var wet=ac.createGain();wet.gain.value=.42;
+      var cv=ac.createConvolver();cv.buffer=impulse();
+      master.connect(comp);comp.connect(ac.destination);
+      master.connect(cv);cv.connect(wet);wet.connect(ac.destination);
+      var t0=ac.currentTime+.15,beat=.52,t=t0,pos=0;
+      var ritFrom=tune.length-5;
+      tune.forEach(function(n,i){
+        var f=N[n[0]],stretch=i>=ritFrom?1+.07*(i-ritFrom+1):1,d=n[1]*beat*stretch;
+        var human=(Math.random()-.5)*.022,vel=.34+(Math.random()-.5)*.07;
+        if(i===3||i===9||i===15)vel*=.88;
+        if(n[1]>=2)vel*=1.08;
+        piano(f,t+human,d,vel,master,.18);
+        t+=d;
+      });
+      chords.forEach(function(c){
+        var s=t0+c[0]*beat,e=(c[1]-c[0])*beat,fr=c[2];
+        piano(fr[0],s,e,.3,master,-.25);
+        var steps=Math.max(2,Math.round((c[1]-c[0])));
+        for(var k=0;k<steps;k++){
+          var tt=s+k*(e/steps)+ (k?0.012*(Math.random()-.5):.05);
+          if(k>0)piano(fr[1+(k%3)],tt,e/steps,.13,master,-.1);
+          else piano(fr[2],tt,e/steps,.14,master,-.1);
+        }
+      });
+      var end=t;
+      [523.25,659.25,784].forEach(function(f,i){piano(f/2,end-.9*beat+i*.04,3,.15,master,0)});
+    }catch(e){}
+  }
+  function stopSong(){
+    try{if(master){master.gain.cancelScheduledValues(ac.currentTime);master.gain.setTargetAtTime(0,ac.currentTime,.12);master=null}}catch(e){}
+  }
+
+  /* ---------- candles ---------- */
+  var g=document.getElementById('candles'),xs=[100,125,150,175,200],cols=['#4cc9f0','#ffd166','#06d6a0','#ff6b9d','#b388ff'],h='';
+  xs.forEach(function(cx,i){
+    h+='<rect x="'+(cx-4)+'" y="78" width="8" height="34" rx="2" fill="'+cols[i]+'"/>'+
+       '<path class="smoke" d="M'+cx+' 74 q-6 -10 0 -18 q6 -8 0 -16" style="animation-delay:'+(i*.12)+'s"/>'+
+       '<ellipse class="flame" cx="'+cx+'" cy="66" rx="5" ry="10" fill="#ffb300"/>'+
+       '<ellipse class="flame" cx="'+cx+'" cy="69" rx="2.5" ry="6" fill="#fff59d"/>';
+  });
+  g.innerHTML=h;
+
+  /* ---------- page navigation ---------- */
+  var order=['p1','p2','p3'],cur=0,blown=false,
+      prevB=document.getElementById('prev'),nxtB=document.getElementById('nxt');
+  function updNav(){
+    prevB.disabled=cur===0;
+    nxtB.disabled=cur===order.length-1||(cur===1&&!blown);
+  }
+  function show(id){
+    document.querySelectorAll('.page').forEach(function(p){p.classList.remove('on')});
+    var el=document.getElementById(id);el.classList.add('on');el.scrollTop=0;
+    cur=order.indexOf(id);updNav();setTheme(id);
+    if(id!=='p2')stopSong();
+  }
+  prevB.onclick=function(){if(cur>0)show(order[cur-1])};
+  nxtB.onclick=function(){if(!nxtB.disabled){show(order[cur+1]);if(cur===2)burst()}};
+  document.getElementById('b1').onclick=function(){show('p2')};
+  document.getElementById('next').onclick=function(e){e.stopPropagation();show('p3');burst()};
+  document.getElementById('replay').onclick=function(e){e.stopPropagation();playSong();burst()};
+
+  /* ---------- cut the cake ---------- */
+  var p2=document.getElementById('p2'),svg=document.getElementById('cake');
+  p2.addEventListener('click',function(){
+    if(blown)return;
+    blown=true;updNav();
+    svg.classList.add('out');
+    document.getElementById('hint').style.display='none';
+    document.getElementById('stage').classList.add('two');
+    playSong();burst();
+    setTimeout(function(){document.getElementById('right').classList.add('on')},900);
+  });
+  updNav();
+})();
+</script>
+</body>
+</html>
